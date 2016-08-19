@@ -2,9 +2,10 @@
 
 extends RigidBody2D
 
-func _ready():
-	#set_fixed_process(true)
-	pass
+signal left_space_area
 
 func _on_body_enter(body):
+	queue_free()
+
+func _on_left_space_area():
 	queue_free()
