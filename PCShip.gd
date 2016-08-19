@@ -28,11 +28,10 @@ func _ready():
 	set_process_input(true)
 
 func _input(event):
+	direction = Vector2(0, 0)
 	for action in ACTIONS:
-		if event.is_action_pressed(action):
+		if Input.is_action_pressed(action):
 			direction += ACTIONS[action]
-		elif event.is_action_released(action):
-			direction -= ACTIONS[action]
 	_update_velocity()
 	if event.is_action_pressed("shoot"):
 		shoot_once()
