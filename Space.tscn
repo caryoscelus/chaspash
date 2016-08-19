@@ -1,9 +1,7 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Space.gd" type="Script" id=1]
-[ext_resource path="res://EnemyE.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Enemy0.tscn" type="PackedScene" id=3]
-[ext_resource path="res://PCShip.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PCShip.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -61,18 +59,7 @@ texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
 
-[node name="world" type="Node" parent="."]
-
-[node name="Enemy 2" parent="world" instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 922.53, 370.901 )
-
-[node name="Enemy" parent="world" instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 887.116, 231.584 )
-velocity/linear = Vector2( -100, 0 )
-
-[node name="PCShip" parent="." instance=ExtResource( 4 )]
+[node name="PCShip" parent="." instance=ExtResource( 2 )]
 
 transform/pos = Vector2( 65, 291 )
 WIDTH = 30
