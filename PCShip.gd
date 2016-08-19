@@ -73,7 +73,7 @@ func set_hp(new_hp):
 func shoot_once():
 	var bullet = Bullet.instance()
 	bullet.owner = self
-	bullet.set_pos(gunpoint.get_global_pos())
+	bullet.set_pos(get_pos()+gunpoint.get_pos())
 	bullet.set_linear_velocity(Vector2(bullet.speed, 0))
 	get_node("..").add_child(bullet)
 
