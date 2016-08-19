@@ -3,10 +3,10 @@
 [ext_resource path="res://PCShip.gd" type="Script" id=1]
 [ext_resource path="res://ships/pc-base.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 40.0
+extents = Vector2( 30, 30 )
 
 [node name="PCShip" type="RigidBody2D"]
 
@@ -32,9 +32,11 @@ velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
 script/script = ExtResource( 1 )
+WIDTH = 40
 speed = 200
+maxhp = 3
 
-[node name="sprite" type="Sprite" parent="."]
+[node name="sprite" type="Sprite" parent="." groups=[ "sprites" ]]
 
 texture = ExtResource( 2 )
 
@@ -51,7 +53,13 @@ wait_time = 0.5
 one_shot = false
 autostart = false
 
+[node name="gunpoint" type="Position2D" parent="."]
+
+transform/pos = Vector2( 40, 0 )
+
 [connection signal="body_enter" from="." to="." method="_on_body_enter"]
+
+[connection signal="hurt" from="." to="." method="_on_hurt"]
 
 [connection signal="timeout" from="shoot_timer" to="." method="shoot_once"]
 
