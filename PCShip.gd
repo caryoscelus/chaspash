@@ -3,7 +3,7 @@
 extends RigidBody2D
 
 var direction = Vector2(0, 0)
-var speed = 100
+export var speed = 200
 const Bullet = preload("Bullet.tscn")
 
 const ACTIONS = {
