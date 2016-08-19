@@ -3,6 +3,7 @@
 extends RigidBody2D
 
 signal hurt
+signal end_of_level
 
 const Bullet = preload("Bullet.tscn")
 
@@ -82,3 +83,8 @@ func start_shooting():
 
 func stop_shooting():
 	get_node("shoot_timer").stop()
+
+func _on_end_of_level():
+	var next_level = get_tree().get_nodes_in_group("level")[0].next_level
+	if next_level:
+		get_tree().change_scene(next_level)

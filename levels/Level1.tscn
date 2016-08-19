@@ -6,27 +6,29 @@
 
 [node name="Level" instance=ExtResource( 1 )]
 
-next_level = "res://levels/Level1.tscn"
-
 [node name="end" parent="."]
 
 transform/pos = Vector2( 1400, 0 )
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 893.793, 128.913 )
+transform/pos = Vector2( 869.239, 94.5358 )
 
 [node name="Enemy1" parent="." instance=ExtResource( 2 )]
 
-transform/pos = Vector2( 1068.13, 130.14 )
-
-[node name="Enemy2" parent="." instance=ExtResource( 2 )]
-
-transform/pos = Vector2( 1238.79, 128.913 )
+transform/pos = Vector2( 1042.35, 99.4468 )
 
 [node name="Enemy 2" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 1206.87, 308.162 )
+transform/pos = Vector2( 875.377, 263.964 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1016.57, 386.737 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1158.98, 503.373 )
 
 [connection signal="body_enter" from="end" to="." method="_on_end_enter"]
 
@@ -42,16 +44,22 @@ transform/pos = Vector2( 1206.87, 308.162 )
 
 [connection signal="left_space_area" from="Enemy1" to="Enemy1" method="_on_left_space_area"]
 
-[connection signal="body_enter" from="Enemy2" to="Enemy2" method="_on_body_enter"]
-
-[connection signal="enter_space_area" from="Enemy2" to="Enemy2" method="_on_enter_space_area"]
-
-[connection signal="left_space_area" from="Enemy2" to="Enemy2" method="_on_left_space_area"]
-
 [connection signal="body_enter" from="Enemy 2" to="Enemy 2" method="_on_body_enter"]
 
 [connection signal="enter_space_area" from="Enemy 2" to="Enemy 2" method="_on_enter_space_area"]
 
 [connection signal="left_space_area" from="Enemy 2" to="Enemy 2" method="_on_left_space_area"]
+
+[connection signal="body_enter" from="Enemy3" to="Enemy3" method="_on_body_enter"]
+
+[connection signal="enter_space_area" from="Enemy3" to="Enemy3" method="_on_enter_space_area"]
+
+[connection signal="left_space_area" from="Enemy3" to="Enemy3" method="_on_left_space_area"]
+
+[connection signal="body_enter" from="Enemy4" to="Enemy4" method="_on_body_enter"]
+
+[connection signal="enter_space_area" from="Enemy4" to="Enemy4" method="_on_enter_space_area"]
+
+[connection signal="left_space_area" from="Enemy4" to="Enemy4" method="_on_left_space_area"]
 
 

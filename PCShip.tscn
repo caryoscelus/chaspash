@@ -59,6 +59,8 @@ transform/pos = Vector2( 40, 0 )
 
 [connection signal="body_enter" from="." to="." method="_on_body_enter"]
 
+[connection signal="end_of_level" from="." to="." method="_on_end_of_level"]
+
 [connection signal="hurt" from="." to="." method="_on_hurt"]
 
 [connection signal="timeout" from="shoot_timer" to="." method="shoot_once"]
