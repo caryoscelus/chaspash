@@ -16,7 +16,7 @@ shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = true
 collision/layers = 1
 collision/mask = 1
-mode = 0
+mode = 1
 mass = 1.0
 friction = 1.0
 bounce = 0.0
@@ -27,7 +27,7 @@ contacts_reported = 1
 contact_monitor = true
 sleeping = false
 can_sleep = true
-velocity/linear = Vector2( -100, 0 )
+velocity/linear = Vector2( 0, 0 )
 velocity/angular = 0.0
 damp_override/linear = -1.0
 damp_override/angular = -1.0
@@ -44,6 +44,8 @@ trigger = true
 _update_shape_index = 0
 
 [connection signal="body_enter" from="." to="." method="_on_body_enter"]
+
+[connection signal="enter_space_area" from="." to="." method="_on_enter_space_area"]
 
 [connection signal="left_space_area" from="." to="." method="_on_left_space_area"]
 

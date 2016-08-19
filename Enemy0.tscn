@@ -4,4 +4,6 @@
 
 [node name="Enemy" instance=ExtResource( 1 )]
 
+velocity/linear = Vector2( 0, 0 )
+
 

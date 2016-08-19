@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Space.gd" type="Script" id=1]
-[ext_resource path="res://PCShip.tscn" type="PackedScene" id=2]
-[ext_resource path="res://EnemyE.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Enemy0.tscn" type="PackedScene" id=4]
+[ext_resource path="res://EnemyE.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemy0.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PCShip.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -61,21 +61,25 @@ texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
 
-[node name="PCShip" parent="." instance=ExtResource( 2 )]
+[node name="world" type="Node" parent="."]
+
+[node name="Enemy 2" parent="world" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 922.53, 370.901 )
+
+[node name="Enemy" parent="world" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 887.116, 231.584 )
+velocity/linear = Vector2( -100, 0 )
+
+[node name="PCShip" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 65, 291 )
 WIDTH = 30
 
-[node name="Enemy 2" parent="." instance=ExtResource( 3 )]
-
-transform/pos = Vector2( 483, 393 )
-
-[node name="Enemy" parent="." instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 342, 250 )
-
 [node name="area" type="CollisionShape2D" parent="."]
 
+visibility/visible = false
 transform/pos = Vector2( 400, 300 )
 shape = SubResource( 1 )
 trigger = true
@@ -84,6 +88,7 @@ _update_shape_index = 0
 [node name="borders" type="StaticBody2D" parent="."]
 
 editor/display_folded = true
+visibility/visible = false
 input/pickable = false
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -4.91094, 277.469 )
@@ -151,14 +156,8 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 
+[connection signal="body_enter" from="." to="." method="_on_body_enter"]
+
 [connection signal="body_exit" from="." to="." method="_on_body_exit"]
-
-[connection signal="body_enter" from="Enemy 2" to="Enemy 2" method="_on_body_enter"]
-
-[connection signal="left_space_area" from="Enemy 2" to="Enemy 2" method="_on_left_space_area"]
-
-[connection signal="body_enter" from="Enemy" to="Enemy" method="_on_body_enter"]
-
-[connection signal="left_space_area" from="Enemy" to="Enemy" method="_on_left_space_area"]
 
 

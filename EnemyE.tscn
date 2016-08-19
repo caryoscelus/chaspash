@@ -5,7 +5,7 @@
 
 [node name="Enemy" instance=ExtResource( 1 )]
 
-velocity/linear = Vector2( -120, 0 )
+velocity/linear = Vector2( -200, 0 )
 
 [node name="sprite" parent="."]
 
