@@ -1,26 +1,14 @@
 [gd_scene load_steps=4 format=1]
 
-[ext_resource path="res://fonts/Averia-Regular.ttf" type="DynamicFontData" id=1]
-
-[sub_resource type="StyleBoxFlat" id=2]
-
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
-bg_color = Color( 0.253906, 0.253906, 0.253906, 1 )
-light_color = Color( 0.8, 0.8, 0.8, 1 )
-dark_color = Color( 0.8, 0.8, 0.8, 1 )
-border_size = 0
-border_blend = true
-draw_bg = true
+[ext_resource path="res://ui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://fonts/Averia-Regular.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 
 font/size = 40
 font/use_mipmaps = false
 font/use_filter = false
-font/font = ExtResource( 1 )
+font/font = ExtResource( 2 )
 
 [node name="Message" type="Panel"]
 
@@ -30,11 +18,11 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
+theme/theme = ExtResource( 1 )
 margin/left = 100.0
 margin/top = 200.0
 margin/right = 100.0
 margin/bottom = 200.0
-custom_styles/panel = SubResource( 2 )
 
 [node name="text" type="Label" parent="."]
 
