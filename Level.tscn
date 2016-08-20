@@ -33,6 +33,15 @@ shape = SubResource( 1 )
 trigger = true
 _update_shape_index = 0
 
+[node name="hud" type="CanvasLayer" parent="."]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[connection signal="change_level" from="." to="." method="_on_change_level"]
+
 [connection signal="body_enter" from="end" to="." method="_on_end_enter"]
 
 

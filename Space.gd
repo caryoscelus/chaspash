@@ -2,6 +2,8 @@
 
 extends Area2D
 
+signal change_level
+
 var velocity = 100
 
 func _ready():
@@ -15,3 +17,6 @@ func _on_body_enter(body):
 
 func _on_body_exit(body):
 	body.emit_signal("left_space_area")
+
+func _on_change_level():
+	get_node("..").emit_signal("change_level")

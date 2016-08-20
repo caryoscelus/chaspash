@@ -83,7 +83,9 @@ func start_shooting():
 func stop_shooting():
 	get_node("shoot_timer").stop()
 
+func _exit_tree():
+	if hp <= 0:
+		get_tree().get_root().emit_signal("game_over")
+
 func _on_end_of_level():
-	var next_level = get_tree().get_nodes_in_group("level")[0].next_level
-	if next_level:
-		get_tree().change_scene(next_level)
+	get_node("..").emit_signal("change_level")
