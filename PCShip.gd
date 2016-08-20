@@ -9,6 +9,7 @@ const Bullet = preload("Bullet.tscn")
 
 onready var gunpoint = get_node("gunpoint")
 onready var shape = get_node("shape")
+onready var sprites = get_node("sprites")
 
 export var WIDTH = 40
 export var speed = 200
@@ -59,14 +60,14 @@ func set_hp(new_hp):
 	if hp == new_hp:
 		return
 	hp = new_hp
-	var sprite = get_node("sprite")
-	for s in get_tree().get_nodes_in_group("sprites"):
+	var sprite = get_node("sprites/sprite")
+	for s in sprites.get_children():
 		if s != sprite:
 			s.queue_free()
 	for i in range(hp-1):
 		sprite = sprite.duplicate()
 		sprite.set_offset(sprite.get_offset()+Vector2(WIDTH, 0))
-		add_child(sprite)
+		sprites.add_child(sprite)
 	gunpoint.set_pos(Vector2(hp*WIDTH, 0))
 	shape.set_pos(Vector2((hp-1)*WIDTH/2.0, 0))
 	shape.set_scale(Vector2(hp*2.0/3+1.0/3, 1))

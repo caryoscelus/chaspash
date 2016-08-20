@@ -36,10 +36,6 @@ WIDTH = 40
 speed = 200
 maxhp = 3
 
-[node name="sprite" type="Sprite" parent="." groups=[ "sprites" ]]
-
-texture = ExtResource( 2 )
-
 [node name="shape" type="CollisionShape2D" parent="."]
 
 shape = SubResource( 1 )
@@ -56,6 +52,12 @@ autostart = false
 [node name="gunpoint" type="Position2D" parent="."]
 
 transform/pos = Vector2( 40, 0 )
+
+[node name="sprites" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite" parent="sprites"]
+
+texture = ExtResource( 2 )
 
 [connection signal="body_enter" from="." to="." method="_on_body_enter"]
 
