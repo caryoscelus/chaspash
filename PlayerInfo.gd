@@ -27,8 +27,12 @@ func load_score():
 	return new_score
 
 func save_score(new_score):
+	max_score = new_score
 	var file = File.new()
 	file.open("user://score.sav", File.WRITE)
 	file.store_line(str(new_score))
 	file.close()
 	emit_signal("max_score_changed", new_score)
+
+func restart():
+	score = 0

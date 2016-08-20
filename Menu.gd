@@ -8,6 +8,7 @@ onready var score = get_node("score")
 func _ready():
 	player.connect("max_score_changed", self, "update_max_score")
 	update_max_score(player.max_score)
+	player.restart()
 
 func update_max_score(max_score):
 	score.text = str(max_score)

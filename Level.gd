@@ -18,6 +18,9 @@ func _on_end_enter(body):
 func _on_change_level():
 	if next_level:
 		get_tree().change_scene(next_level)
+	else:
+		# duh, can we just read main_scene?
+		get_tree().change_scene("res://Menu.tscn")
 
 func _on_game_over():
 	hud.add_child(GameOver.instance())
