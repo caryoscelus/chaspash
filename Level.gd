@@ -5,6 +5,7 @@ export(String, FILE, "*.tscn") var next_level
 
 const GameOver = preload("res://GameOver.tscn")
 onready var hud = get_node("hud")
+onready var space = get_node("Space")
 onready var player = get_tree().get_root().get_node("PlayerInfo")
 
 func _ready():
@@ -20,6 +21,7 @@ func _on_change_level():
 
 func _on_game_over():
 	hud.add_child(GameOver.instance())
+	space.stop()
 
 func update_score(score):
 	hud.get_node("score").set_text(str(score))
