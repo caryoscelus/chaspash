@@ -14,4 +14,4 @@ func update_max_score(max_score):
 	score.text = str(max_score)
 
 func _on_start_pressed():
-	get_tree().change_scene(first_level)
+	SceneTransition.change_scene(first_level)
