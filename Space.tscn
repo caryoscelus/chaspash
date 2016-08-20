@@ -147,6 +147,4 @@ drag_margin/bottom = 0.2
 
 [connection signal="body_exit" from="." to="." method="_on_body_exit"]
 
-[connection signal="change_level" from="." to="." method="_on_change_level"]
-
 

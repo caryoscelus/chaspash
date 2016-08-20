@@ -52,6 +52,7 @@ func _on_body_enter(body):
 func _on_hurt():
 	self.hp -= 1
 	if hp <= 0:
+		get_node("..").emit_signal("game_over")
 		queue_free()
 
 func set_hp(new_hp):
@@ -82,10 +83,6 @@ func start_shooting():
 
 func stop_shooting():
 	get_node("shoot_timer").stop()
-
-func _exit_tree():
-	if hp <= 0:
-		get_tree().get_root().emit_signal("game_over")
 
 func _on_end_of_level():
 	get_node("..").emit_signal("change_level")
