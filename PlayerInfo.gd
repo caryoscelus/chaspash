@@ -4,13 +4,13 @@ extends Node
 signal score_changed(score)
 signal max_score_changed(max_score)
 
+export var LIFE_PRICE = 5
+
 var score = 0 setget set_score
 onready var max_score = load_score()
 
 func set_score(new_score):
 	score = new_score
-	if score > max_score:
-		save_score(score)
 	emit_signal("score_changed", score)
 
 func killed_enemy(enemy):
@@ -21,6 +21,9 @@ func missed_enemy(enemy):
 
 func shot_bullet(bullet):
 	self.score -= bullet.shot_score
+
+func was_hurt(amount):
+	self.score -= amount * LIFE_PRICE
 
 func load_score():
 	var file = File.new()
@@ -39,6 +42,11 @@ func save_score(new_score):
 	file.store_line(str(new_score))
 	file.close()
 	emit_signal("max_score_changed", new_score)
+
+func finish():
+	print(score)
+	if score > max_score:
+		save_score(score)
 
 func restart():
 	score = 0

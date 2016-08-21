@@ -19,6 +19,7 @@ func _on_change_level():
 	if not scene:
 		# duh, can we just read main_scene?
 		scene = "res://Menu.tscn"
+		PlayerInfo.finish()
 	SceneTransition.change_scene(scene)
 
 func _on_game_over():

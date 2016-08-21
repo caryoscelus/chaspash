@@ -53,7 +53,9 @@ func _on_body_enter(body):
 
 func _on_hurt():
 	self.hp -= 1
+	PlayerInfo.was_hurt(1)
 	if hp <= 0:
+		PlayerInfo.finish()
 		get_node("..").emit_signal("game_over")
 		queue_free()
 
