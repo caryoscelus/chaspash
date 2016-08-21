@@ -7,8 +7,7 @@
 [node name="Enemy" instance=ExtResource( 1 )]
 
 transform/pos = Vector2( 134, 96 )
-kill_score = 10
-miss_score = 0
+kill_score = 20
 
 [node name="sprite" parent="."]
 
@@ -21,7 +20,7 @@ script/script = ExtResource( 3 )
 [node name="shoot_delay" type="Timer" parent="Gun"]
 
 process_mode = 1
-wait_time = 0.3
+wait_time = 0.5
 one_shot = true
 autostart = false
 
@@ -31,8 +30,9 @@ transform/pos = Vector2( -60, 0 )
 
 [node name="view" type="RayCast2D" parent="Gun"]
 
+transform/pos = Vector2( 0, 8 )
 enabled = true
-cast_to = Vector2( -300, 0 )
+cast_to = Vector2( -400, 0 )
 layer_mask = 1
 type_mask = 15
 
