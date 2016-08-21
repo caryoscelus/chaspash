@@ -1,17 +1,13 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://PCShip.gd" type="Script" id=1]
 [ext_resource path="res://ships/pc-base.png" type="Texture" id=2]
-[ext_resource path="res://sounds/shoot.wav" type="Sample" id=3]
+[ext_resource path="res://sounds/sounds.tres" type="SampleLibrary" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 30, 30 )
-
-[sub_resource type="SampleLibrary" id=2]
-
-samples/shoot = { "db":0.0, "pitch":1.0, "sample":ExtResource( 3 ) }
 
 [node name="PCShip" type="RigidBody2D"]
 
@@ -71,8 +67,8 @@ params/pitch_scale = 1.0
 params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
-config/polyphony = 1
-config/samples = SubResource( 2 )
+config/polyphony = 4
+config/samples = ExtResource( 3 )
 config/pitch_random = 0.0
 
 [connection signal="body_enter" from="." to="." method="_on_body_enter"]
