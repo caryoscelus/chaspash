@@ -38,6 +38,8 @@ type_mask = 15
 
 [node name="bullets" type="Node" parent="."]
 
+[connection signal="timeout" from="dying_timer" to="." method="queue_free"]
+
 [connection signal="timeout" from="Gun/shoot_delay" to="Gun" method="_on_reload_complete"]
 
 

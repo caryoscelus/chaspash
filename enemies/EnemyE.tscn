@@ -12,4 +12,6 @@ kill_score = 20
 
 texture = ExtResource( 2 )
 
+[connection signal="timeout" from="dying_timer" to="." method="queue_free"]
+
 

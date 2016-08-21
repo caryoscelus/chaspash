@@ -44,7 +44,6 @@ func save_score(new_score):
 	emit_signal("max_score_changed", new_score)
 
 func finish():
-	print(score)
 	if score > max_score:
 		save_score(score)
 
