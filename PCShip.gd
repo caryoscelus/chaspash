@@ -4,12 +4,14 @@ extends RigidBody2D
 
 signal hurt
 signal end_of_level
+signal shot_bullet
 
 const Bullet = preload("Bullet.tscn")
 
 onready var gunpoint = get_node("gunpoint")
 onready var shape = get_node("shape")
 onready var sprites = get_node("sprites")
+onready var sound = get_node("sound")
 
 export var WIDTH = 40
 export var speed = 200
@@ -28,6 +30,7 @@ const ACTIONS = {
 func _ready():
 	set_hp(3)
 	set_process_input(true)
+	connect("shot_bullet", PlayerInfo, "shot_bullet")
 
 func _input(event):
 	direction = Vector2(0, 0)
@@ -82,7 +85,7 @@ func shoot_once():
 	bullet.set_pos(get_pos()+gunpoint.get_pos())
 	bullet.set_linear_velocity(Vector2(bullet.speed, 0))
 	get_node("..").add_child(bullet)
-	PlayerInfo.shot_bullet(bullet)
+	emit_signal("shot_bullet", bullet)
 
 func start_shooting():
 	get_node("shoot_timer").start()
@@ -92,3 +95,6 @@ func stop_shooting():
 
 func _on_end_of_level():
 	get_node("..").emit_signal("change_level")
+
+func play_shot_sound(bullet):
+	sound.play("shoot")
