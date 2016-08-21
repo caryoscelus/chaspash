@@ -34,28 +34,4 @@ transform/pos = Vector2( 1206.87, 308.162 )
 
 [connection signal="body_enter" from="end" to="." method="_on_end_enter"]
 
-[connection signal="body_enter" from="Enemy" to="Enemy" method="_on_body_enter"]
-
-[connection signal="enter_space_area" from="Enemy" to="Enemy" method="_on_enter_space_area"]
-
-[connection signal="left_space_area" from="Enemy" to="Enemy" method="_on_left_space_area"]
-
-[connection signal="body_enter" from="Enemy1" to="Enemy1" method="_on_body_enter"]
-
-[connection signal="enter_space_area" from="Enemy1" to="Enemy1" method="_on_enter_space_area"]
-
-[connection signal="left_space_area" from="Enemy1" to="Enemy1" method="_on_left_space_area"]
-
-[connection signal="body_enter" from="Enemy2" to="Enemy2" method="_on_body_enter"]
-
-[connection signal="enter_space_area" from="Enemy2" to="Enemy2" method="_on_enter_space_area"]
-
-[connection signal="left_space_area" from="Enemy2" to="Enemy2" method="_on_left_space_area"]
-
-[connection signal="body_enter" from="Enemy 2" to="Enemy 2" method="_on_body_enter"]
-
-[connection signal="enter_space_area" from="Enemy 2" to="Enemy 2" method="_on_enter_space_area"]
-
-[connection signal="left_space_area" from="Enemy 2" to="Enemy 2" method="_on_left_space_area"]
-
 

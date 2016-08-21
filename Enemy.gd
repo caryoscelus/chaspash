@@ -6,10 +6,14 @@ signal left_space_area
 signal enter_space_area
 signal killed
 
-onready var player = get_tree().get_root().get_node("PlayerInfo")
+export var kill_score = 10
+export var miss_score = 0
+
+const team = "enemy"
 
 func _ready():
-	connect("killed", player, "killed_enemy", [self])
+	connect("killed", PlayerInfo, "killed_enemy", [self])
+	connect("left_space_area", PlayerInfo, "missed_enemy", [self])
 
 func _on_body_enter(body):
 	emit_signal("killed")

@@ -16,6 +16,7 @@ export var speed = 200
 export var maxhp = 3
 var hp setget set_hp
 var direction = Vector2(0, 0)
+const team = "player"
 
 const ACTIONS = {
 	move_up = Vector2(0, -1),
@@ -75,9 +76,11 @@ func set_hp(new_hp):
 func shoot_once():
 	var bullet = Bullet.instance()
 	bullet.owner = self
+	bullet.team = team
 	bullet.set_pos(get_pos()+gunpoint.get_pos())
 	bullet.set_linear_velocity(Vector2(bullet.speed, 0))
 	get_node("..").add_child(bullet)
+	PlayerInfo.shot_bullet(bullet)
 
 func start_shooting():
 	get_node("shoot_timer").start()

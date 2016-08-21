@@ -14,7 +14,13 @@ func set_score(new_score):
 	emit_signal("score_changed", score)
 
 func killed_enemy(enemy):
-	self.score += 1
+	self.score += enemy.kill_score
+
+func missed_enemy(enemy):
+	self.score -= enemy.miss_score
+
+func shot_bullet(bullet):
+	self.score -= bullet.shot_score
 
 func load_score():
 	var file = File.new()

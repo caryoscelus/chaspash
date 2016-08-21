@@ -3,7 +3,9 @@
 extends RigidBody2D
 
 export var speed = 300
+export var shot_score = 1
 var owner
+var team
 
 signal left_space_area
 

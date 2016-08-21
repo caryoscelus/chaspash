@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ships/enemy-a.png" type="Texture" id=2]
+[ext_resource path="res://enemies/Gun.gd" type="Script" id=3]
+
+[node name="Enemy" instance=ExtResource( 1 )]
+
+transform/pos = Vector2( 134, 96 )
+kill_score = 10
+miss_score = 0
+
+[node name="sprite" parent="."]
+
+texture = ExtResource( 2 )
+
+[node name="Gun" type="Node2D" parent="."]
+
+script/script = ExtResource( 3 )
+
+[node name="shoot_delay" type="Timer" parent="Gun"]
+
+process_mode = 1
+wait_time = 0.3
+one_shot = true
+autostart = false
+
+[node name="gunpoint" type="Position2D" parent="Gun"]
+
+transform/pos = Vector2( -60, 0 )
+
+[node name="view" type="RayCast2D" parent="Gun"]
+
+enabled = true
+cast_to = Vector2( -300, 0 )
+layer_mask = 1
+type_mask = 15
+
+[node name="bullets" type="Node" parent="."]
+
+[connection signal="timeout" from="Gun/shoot_delay" to="Gun" method="_on_reload_complete"]
+
+

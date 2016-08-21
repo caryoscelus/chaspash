@@ -6,6 +6,8 @@
 [node name="Enemy" instance=ExtResource( 1 )]
 
 velocity/linear = Vector2( -200, 0 )
+kill_score = 10
+miss_score = 0
 
 [node name="sprite" parent="."]
 
