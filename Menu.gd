@@ -2,16 +2,19 @@
 extends Container
 
 export(String, FILE, "*.tscn") var first_level
-onready var player = get_node("/root/PlayerInfo")
-onready var score = get_node("score")
+onready var score_label = get_node("score/label")
 
 func _ready():
-	player.connect("max_score_changed", self, "update_max_score")
-	update_max_score(player.max_score)
-	player.restart()
+	get_node("start").grab_focus()
+	PlayerInfo.connect("max_score_changed", self, "update_max_score")
+	update_max_score(PlayerInfo.max_score)
+	PlayerInfo.restart()
 
 func update_max_score(max_score):
-	score.text = str(max_score)
+	score_label.text = str(max_score)
 
 func _on_start_pressed():
 	SceneTransition.change_scene(first_level)
+
+func _on_exit_pressed():
+	get_tree().quit()

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://MenuButton.tscn" type="PackedScene" id=2]
 
 [node name="Menu" type="Container"]
 
@@ -15,61 +16,48 @@ margin/bottom = 600.0
 script/script = ExtResource( 1 )
 first_level = "res://levels/Level0.tscn"
 
-[node name="start" type="Button" parent="."]
+[node name="name" parent="." instance=ExtResource( 2 )]
 
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 100.0
-margin/top = 400.0
-margin/right = 100.0
-margin/bottom = 100.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "start"
-flat = false
-
-[node name="score" type="Label" parent="."]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 100.0
-margin/top = 200.0
-margin/right = 100.0
-margin/bottom = 200.0
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="name" type="Label" parent="."]
-
-anchor/right = 1
-anchor/bottom = 1
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 100.0
 margin/top = 100.0
-margin/right = 100.0
 margin/bottom = 400.0
+
+[node name="label" parent="name"]
+
 text = "space"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
+
+[node name="score" parent="." instance=ExtResource( 2 )]
+
+margin/top = 200.0
+margin/bottom = 300.0
+
+[node name="label" parent="score"]
+
+text = "max score"
+
+[node name="start" parent="." instance=ExtResource( 2 )]
+
+margin/top = 300.0
+margin/bottom = 200.0
+
+[node name="label" parent="start"]
+
+text = "start"
+
+[node name="exit" parent="." instance=ExtResource( 2 )]
+
+margin/top = 400.0
+margin/bottom = 100.0
+
+[node name="label" parent="exit"]
+
+text = "exit"
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
 
+
+[editable path="name"]
+[editable path="score"]
+[editable path="start"]
+[editable path="exit"]
