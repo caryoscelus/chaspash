@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://PCShip.gd" type="Script" id=1]
 [ext_resource path="res://ships/pc-base.png" type="Texture" id=2]
 [ext_resource path="res://sounds/sounds.tres" type="SampleLibrary" id=3]
+[ext_resource path="res://Trail.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -70,6 +71,14 @@ params/attenuation/distance_exp = 1.0
 config/polyphony = 4
 config/samples = ExtResource( 3 )
 config/pitch_random = 0.0
+
+[node name="Trail Up" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -40, -32 )
+
+[node name="Trail Down" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( -40, 32 )
 
 [connection signal="body_enter" from="." to="." method="_on_body_enter"]
 

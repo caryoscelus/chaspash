@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=1]
+
+[sub_resource type="ColorRamp" id=1]
+
+offsets = FloatArray( 0, 0.350877, 0.625731, 1 )
+colors = ColorArray( 1, 0, 0, 1, 0.539062, 0.130554, 0.130554, 1, 0.556078, 0.556078, 0.556078, 1, 1, 1, 1, 1 )
+
+[node name="Trail" type="Particles2D"]
+
+config/amount = 256
+config/lifetime = 2.0
+config/half_extents = Vector2( 0, 4 )
+config/local_space = false
+params/direction = 90.0
+params/spread = 40.0
+params/linear_velocity = 30.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 3.0
+params/final_size = 5.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+color/color_ramp = SubResource( 1 )
+
+
