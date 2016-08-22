@@ -12,6 +12,7 @@ export var miss_score = 0
 const team = "enemy"
 
 onready var sound = get_node("sound")
+onready var stream = get_node("stream")
 onready var dying_timer = get_node("dying_timer")
 
 func _ready():
