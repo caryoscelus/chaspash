@@ -1,6 +1,8 @@
 #
 extends CanvasLayer
 
+signal changed_scene
+
 onready var viewport = get_node("/root")
 onready var old = get_node("old")
 onready var animation = get_node("animation")
@@ -15,3 +17,4 @@ func change_scene(scene):
 	old.set_texture(texture)
 	get_tree().change_scene(scene)
 	animation.play("fadeout")
+	emit_signal("changed_scene")

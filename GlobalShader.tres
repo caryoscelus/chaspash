@@ -1,0 +1,13 @@
+[gd_resource type="CanvasItemMaterial" load_steps=2 format=1]
+
+[sub_resource type="CanvasItemShader" id=1]
+
+_code = { "fragment":"uniform float modulate = 1.5;\nuniform float unmodulate = 0.7;\n\nvec2 uv = SCREEN_UV;\nvec3 current = texscreen(uv);\nvec3 result = current;\nvec2 xy = uv / TEXTURE_PIXEL_SIZE;\nxy.x = floor(xy.x);\nxy.y = floor(xy.y);\nif (mod(xy.x, 3) == 0) {\n\tresult *= vec3(modulate, unmodulate, unmodulate);\n}\nif (mod(xy.x, 3) == 1) {\n\tresult *= vec3(unmodulate, modulate, unmodulate);\n}\nif (mod(xy.x, 2) == 1) {\n\tresult *= vec3(unmodulate, unmodulate, modulate);\n}\nCOLOR.rgb = result;\n//COLOR.rgba = SRC_COLOR.rrrr;\n", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
+
+[resource]
+
+shader/shader = SubResource( 1 )
+shader/shading_mode = 0
+shader_param/modulate = 1.5
+shader_param/unmodulate = 0.7
+
