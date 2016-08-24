@@ -4,7 +4,7 @@
 
 [sub_resource type="DynamicFont" id=1]
 
-font/size = 20
+font/size = 32
 font/use_mipmaps = false
 font/use_filter = false
 font/font = ExtResource( 1 )
