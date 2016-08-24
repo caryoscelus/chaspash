@@ -1,0 +1,6 @@
+[gd_resource type="CanvasItemShader" format=1]
+
+[resource]
+
+_code = { "fragment":"uniform texture vignette;\n\nCOLOR.rgb = texscreen(SCREEN_UV);\nCOLOR.rgb *= tex(vignette, UV).rgb;\n", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
+

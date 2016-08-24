@@ -1,9 +1,32 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://GlobalShader.gd" type="Script" id=1]
 [ext_resource path="res://ships/enemy-0.png" type="Texture" id=2]
-[ext_resource path="res://GlobalShader.tres" type="CanvasItemMaterial" id=3]
+[ext_resource path="res://effects/pixelate.tres" type="Shader" id=3]
 [ext_resource path="res://effects/white.png" type="Texture" id=4]
+[ext_resource path="res://effects/vignette.tres" type="Shader" id=5]
+[ext_resource path="res://effects/vignette.png" type="Texture" id=6]
+[ext_resource path="res://effects/curvature.tres" type="Shader" id=7]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+shader/shader = ExtResource( 3 )
+shader/shading_mode = 0
+shader_param/modulate = 1.5
+shader_param/unmodulate = 0.7
+shader_param/pixel_size = 3.0
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+shader/shader = ExtResource( 5 )
+shader/shading_mode = 0
+shader_param/vignette = ExtResource( 6 )
+
+[sub_resource type="CanvasItemMaterial" id=3]
+
+shader/shader = ExtResource( 7 )
+shader/shading_mode = 0
+shader_param/vignette = ExtResource( 6 )
 
 [node name="GlobalShader" type="CanvasLayer"]
 
@@ -35,9 +58,52 @@ texture/rotation = 0.0
 invert/enable = false
 invert/border = 100.0
 
-[node name="TextureFrame" type="TextureFrame" parent="."]
+[node name="pixelate" type="TextureFrame" parent="."]
 
-material/material = ExtResource( 3 )
+material/material = SubResource( 1 )
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+texture = ExtResource( 4 )
+stretch_mode = 0
+
+[node name="backbuffer-1" type="BackBufferCopy" parent="."]
+
+copy_mode = 1
+rect = Rect2( 0, 0, 800, 600 )
+
+[node name="vignette" type="TextureFrame" parent="."]
+
+visibility/opacity = 0.4
+material/material = SubResource( 2 )
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+texture = ExtResource( 4 )
+stretch_mode = 0
+
+[node name="backbuffer-2" type="BackBufferCopy" parent="."]
+
+copy_mode = 1
+rect = Rect2( 0, 0, 800, 600 )
+
+[node name="curvature" type="TextureFrame" parent="."]
+
+material/material = SubResource( 3 )
 anchor/right = 1
 anchor/bottom = 1
 focus/ignore_mouse = true
