@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=2 format=1]
 
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
-[ext_resource path="res://ships/enemy-e.png" type="Texture" id=2]
 
 [node name="Enemy" instance=ExtResource( 1 )]
 
@@ -10,8 +9,6 @@ kill_score = 20
 
 [node name="sprite" parent="."]
 
-texture = ExtResource( 2 )
-
-[connection signal="timeout" from="dying_timer" to="." method="queue_free"]
+text = "E"
 
 

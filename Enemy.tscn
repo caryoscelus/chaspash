@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
-[ext_resource path="res://ships/enemy-0.png" type="Texture" id=2]
+[ext_resource path="res://ships/ship_font_theme.tres" type="Theme" id=2]
 [ext_resource path="res://sounds/sounds.tres" type="SampleLibrary" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -36,9 +36,23 @@ script/script = ExtResource( 1 )
 kill_score = 10
 miss_score = 0
 
-[node name="sprite" type="Sprite" parent="."]
+[node name="sprite" type="Label" parent="."]
 
-texture = ExtResource( 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
+margin/left = -40.0
+margin/top = -54.0
+margin/right = 40.0
+margin/bottom = 58.0
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="shape" type="CollisionShape2D" parent="."]
 

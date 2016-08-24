@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://PCShip.gd" type="Script" id=1]
-[ext_resource path="res://ships/pc-base.png" type="Texture" id=2]
+[ext_resource path="res://ships/ship_font_theme.tres" type="Theme" id=2]
 [ext_resource path="res://sounds/sounds.tres" type="SampleLibrary" id=3]
 [ext_resource path="res://Trail.tscn" type="PackedScene" id=4]
 
@@ -57,9 +57,23 @@ transform/pos = Vector2( 40, 0 )
 
 [node name="sprites" type="Node2D" parent="."]
 
-[node name="sprite" type="Sprite" parent="sprites"]
+[node name="sprite" type="Label" parent="sprites"]
 
-texture = ExtResource( 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+theme/theme = ExtResource( 2 )
+margin/left = -30.0
+margin/top = -56.0
+margin/right = 30.0
+margin/bottom = 56.0
+text = ">"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="sound" type="SamplePlayer2D" parent="."]
 

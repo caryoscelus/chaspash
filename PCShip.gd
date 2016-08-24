@@ -72,8 +72,8 @@ func set_hp(new_hp):
 			s.queue_free()
 	for i in range(hp-1):
 		sprite = sprite.duplicate()
-		sprite.set_offset(sprite.get_offset()+Vector2(WIDTH, 0))
 		sprites.add_child(sprite)
+		sprite.set_pos(sprite.get_pos()+Vector2(WIDTH, 0))
 	gunpoint.set_pos(Vector2(hp*WIDTH, 0))
 	shape.set_pos(Vector2((hp-1)*WIDTH/2.0, 0))
 	shape.set_scale(Vector2(hp*2.0/3+1.0/3, 1))

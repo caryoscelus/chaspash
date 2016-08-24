@@ -4,7 +4,4 @@
 
 [node name="Enemy" instance=ExtResource( 1 )]
 
-kill_score = 10
-miss_score = 0
-
 
