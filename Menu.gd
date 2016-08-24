@@ -11,7 +11,7 @@ func _ready():
 	PlayerInfo.restart()
 
 func update_max_score(max_score):
-	score_label.text = str(max_score)
+	score_label.text = "max score: "+str(max_score)
 
 func _on_start_pressed():
 	SceneTransition.change_scene(first_level)
