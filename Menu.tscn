@@ -3,23 +3,29 @@
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://MenuButton.tscn" type="PackedScene" id=2]
 
-[node name="Menu" type="Container"]
+[node name="Menu" type="GridContainer"]
 
+anchor/right = 1
+anchor/bottom = 1
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 800.0
-margin/bottom = 600.0
+margin/left = 100.0
+margin/top = 100.0
+margin/right = 100.0
+margin/bottom = 100.0
+columns = 1
 script/script = ExtResource( 1 )
 first_level = "res://levels/Level0.tscn"
 
 [node name="name" parent="." instance=ExtResource( 2 )]
 
-margin/top = 100.0
-margin/bottom = 400.0
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 0.0
+margin/right = 600.0
+margin/bottom = 100.0
 
 [node name="label" parent="name"]
 
@@ -27,8 +33,12 @@ text = "chaspash"
 
 [node name="score" parent="." instance=ExtResource( 2 )]
 
-margin/top = 200.0
-margin/bottom = 300.0
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 0.0
+margin/top = 104.0
+margin/right = 600.0
+margin/bottom = 204.0
 
 [node name="label" parent="score"]
 
@@ -36,8 +46,12 @@ text = "max score"
 
 [node name="start" parent="." instance=ExtResource( 2 )]
 
-margin/top = 300.0
-margin/bottom = 200.0
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 0.0
+margin/top = 208.0
+margin/right = 600.0
+margin/bottom = 308.0
 
 [node name="label" parent="start"]
 
@@ -45,8 +59,12 @@ text = "start"
 
 [node name="exit" parent="." instance=ExtResource( 2 )]
 
-margin/top = 400.0
-margin/bottom = 100.0
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 0.0
+margin/top = 312.0
+margin/right = 600.0
+margin/bottom = 412.0
 
 [node name="label" parent="exit"]
 
