@@ -8,6 +8,7 @@ signal killed
 
 export var kill_score = 10
 export var miss_score = 0
+export var hurt_amount = 1
 
 const team = "enemy"
 

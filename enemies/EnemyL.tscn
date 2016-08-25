@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
+
+[node name="Enemy" instance=ExtResource( 1 )]
+
+velocity/linear = Vector2( -300, 0 )
+kill_score = 5
+hurt_amount = -1
+
+[node name="sprite" parent="."]
+
+text = "L"
+
+

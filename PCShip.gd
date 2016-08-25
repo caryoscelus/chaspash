@@ -52,17 +52,19 @@ func _on_body_enter(body):
 		return
 	if body == get_node("../borders"):
 		return
-	emit_signal("hurt")
+	emit_signal("hurt", body)
 
-func _on_hurt():
-	self.hp -= 1
-	PlayerInfo.was_hurt(1)
+func _on_hurt(hurt_by):
+	self.hp -= hurt_by.hurt_amount
+	PlayerInfo.was_hurt(hurt_by.hurt_amount)
 	if hp <= 0:
 		PlayerInfo.finish()
 		get_node("..").emit_signal("game_over")
 		queue_free()
 
 func set_hp(new_hp):
+	if new_hp > maxhp:
+		new_hp = maxhp
 	if hp == new_hp:
 		return
 	hp = new_hp

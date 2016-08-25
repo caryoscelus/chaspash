@@ -4,6 +4,7 @@ extends RigidBody2D
 
 export var speed = 300
 export var shot_score = 1
+export var hurt_amount = 1
 var owner
 var team
 
