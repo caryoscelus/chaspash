@@ -15,15 +15,21 @@ func _on_end_enter(body):
 	body.emit_signal("end_of_level")
 
 func _on_change_level():
-	var scene = next_level
-	if not scene:
-		# duh, can we just read main_scene?
-		scene = "res://Menu.tscn"
-		PlayerInfo.finish()
-	SceneTransition.change_scene(scene)
+	if next_level:
+		SceneTransition.change_scene(next_level)
+	else:
+		_back_to_menu()
+
+func _back_to_menu():
+	# duh, can we just read main_scene?
+	PlayerInfo.finish()
+	SceneTransition.change_scene("res://Menu.tscn")
 
 func _on_game_over():
-	hud.add_child(GameOver.instance())
+	var game_over = GameOver.instance()
+	hud.add_child(game_over)
+	game_over.get_node("button").grab_focus()
+	game_over.connect("dismiss", self, "_back_to_menu")
 	space.stop()
 
 func update_score(score):

@@ -4,7 +4,7 @@
 
 [node name="Message" instance=ExtResource( 1 )]
 
-[node name="text" parent="."]
+[node name="text" parent="button"]
 
 text = "Game Over"
 
