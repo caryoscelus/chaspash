@@ -23,7 +23,7 @@ margin/bottom = 400.0
 
 [node name="label" parent="name"]
 
-text = "space"
+text = "chaspash"
 
 [node name="score" parent="." instance=ExtResource( 2 )]
 
