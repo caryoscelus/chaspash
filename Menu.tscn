@@ -17,7 +17,7 @@ margin/right = 100.0
 margin/bottom = 100.0
 columns = 1
 script/script = ExtResource( 1 )
-first_level = "res://levels/Level0.tscn"
+first_level = "res://LevelMenu.tscn"
 
 [node name="name" parent="." instance=ExtResource( 2 )]
 

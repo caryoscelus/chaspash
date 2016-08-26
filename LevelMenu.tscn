@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://LevelMenu.gd" type="Script" id=1]
+[ext_resource path="res://MenuButton.tscn" type="PackedScene" id=2]
+
+[node name="LevelMenu" type="GridContainer"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 100.0
+margin/top = 100.0
+margin/right = 100.0
+margin/bottom = 100.0
+columns = 1
+script/script = ExtResource( 1 )
+levels = StringArray( "res://levels/Level0.tscn", "res://levels/Level1.tscn" )
+
+[node name="button0" parent="." instance=ExtResource( 2 )]
+
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 0.0
+margin/right = 600.0
+margin/bottom = 100.0
+
+[node name="button1" parent="." instance=ExtResource( 2 )]
+
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 0.0
+margin/top = 104.0
+margin/right = 600.0
+margin/bottom = 204.0
+
+[node name="button2" parent="." instance=ExtResource( 2 )]
+
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 0.0
+margin/top = 208.0
+margin/right = 600.0
+margin/bottom = 308.0
+
+[node name="button3" parent="." instance=ExtResource( 2 )]
+
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 0.0
+margin/top = 312.0
+margin/right = 600.0
+margin/bottom = 412.0
+
+
+[editable path="button0"]
+[editable path="button1"]
+[editable path="button2"]
+[editable path="button3"]
